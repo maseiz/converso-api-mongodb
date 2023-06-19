@@ -17,7 +17,6 @@ import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
 import { Link, useNavigate } from 'react-router-dom';
 import TotalItems from '../CartContent/TotalItems';
-import { Button } from '@mui/material';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 const drawerWidth = 240;
@@ -45,14 +44,13 @@ const SearchIconWrapper = styled('div')(({ theme }) => ({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
-  color: theme.palette.text.primary, // Establecer el color a negro
+  color: theme.palette.text.primary,
 }));
 
 const StyledInputBase = styled(InputBase)(({ theme }) => ({
   color: 'primary',
   '& .MuiInputBase-input': {
     padding: theme.spacing(1, 1, 1, 0),
-    // vertical padding + font size from searchIcon
     paddingLeft: `calc(1em + ${theme.spacing(4)})`,
     transition: theme.transitions.create('width'),
     width: '100%',
@@ -73,8 +71,8 @@ const theme = createTheme({
     typography: {
       fontSize: '1.2rem',
     },
-
-}});
+  },
+});
 
 const IconsWrapper = styled('div')(({ theme }) => ({
   display: 'flex',
@@ -93,17 +91,20 @@ export default function NavBar() {
   const navigate = useNavigate();
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [searchText, setSearchText] = useState('');
-
+  
   const handleDrawerToggle = () => {
     setDrawerOpen(!drawerOpen);
   };
 
   const handleSearch = (e) => {
     if (e.key === 'Enter') {
-      // Redirect to Products page with search query
       navigate(`/Products?search=${encodeURIComponent(searchText)}`);
       setSearchText('');
     }
+  };
+
+  const handleLoginClick = () => {
+    navigate('/Login')
   };
 
   return (
@@ -122,13 +123,21 @@ export default function NavBar() {
           <Typography
             noWrap
             component="div"
-            sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block', fontWeight: 'bold', color:'black', marginLeft: 60 } }}
+            sx={{
+              flexGrow: 1,
+              display: { xs: 'none', sm: 'block', fontWeight: 'bold', color: 'black', marginLeft: 60 },
+            }}
           >
-            <ThemeProvider theme={theme}>
-            <Button color='primary' varian ='outline' component={Link} to='/'>
-              CONVERSO
-            </Button>
-            </ThemeProvider>
+ <ThemeProvider theme={theme}>
+  <h2
+    style={{ cursor: 'pointer', marginLeft: '140px' }}
+    color="primary"
+    variant="outline"
+    onClick={() => navigate('/')}
+  >
+    CONVERSO 👟
+  </h2>
+</ThemeProvider>
           </Typography>
           {/* Search bar */}
           <Search>
@@ -153,8 +162,8 @@ export default function NavBar() {
               </Badge>
             </IconButton>
             <IconSeparator />
-            <IconButton>
-              <PermIdentityIcon />
+            <IconButton >
+              <PermIdentityIcon onClick={handleLoginClick}/>
             </IconButton>
           </IconsWrapper>
         </Toolbar>
@@ -168,7 +177,7 @@ export default function NavBar() {
       >
         <DrawerContainer>
           <List>
-            <ListItem Button component={Link} to= "/Products" >
+            <ListItem Button component={Link} to="/Products">
               <ListItemText primary="Mujer" />
             </ListItem>
             <ListItem button>
@@ -192,6 +201,7 @@ export default function NavBar() {
           </List>
         </DrawerContainer>
       </Drawer>
+     
     </Box>
   );
 }

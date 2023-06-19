@@ -4,7 +4,7 @@ import Products from './Pages/Products';
 import Details from './Pages/Details';
 import NoPage from './Pages/NoPage';
 import Cart from './Pages/Cart.jsx';
-
+import Login from './Components/NavBar/Login'
 
 function App() {
   return (
@@ -17,6 +17,7 @@ function App() {
           <Route path="/Details/:id" element={<Details />} />
           <Route path="/Cart" element={<Cart />} />
           <Route path="*" element={<NoPage />} />
+          <Route path="/Login" element={<Login />} />
         </Routes>
       </BrowserRouter>
 

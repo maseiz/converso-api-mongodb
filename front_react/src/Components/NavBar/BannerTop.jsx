@@ -5,7 +5,6 @@ import Typography from '@mui/material/Typography';
 import Link from '@mui/material/Link';
 import bandera from '../../Assets/flag.png';
 
-
 const BannerWrapper = styled(Box)(({ theme }) => ({
   backgroundColor: '#E5E5E5',
   color: '#000000',

@@ -1,6 +1,7 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
+import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
   banner: {
@@ -22,7 +23,8 @@ const BannerBottom = () => {
     <div className={classes.banner}>
       <h2>VUELVE A LO RETRO</h2>
       <p>Obtén un descuento exclusivo en tu próxima compra.</p>
-      <Button className={classes.button} variant="contained">
+      <Button className={classes.button} variant="contained"  component={Link}
+            to="/Products">
         Comprar
       </Button>
     </div>
