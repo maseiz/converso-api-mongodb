@@ -135,7 +135,7 @@ export default function NavBar() {
     variant="outline"
     onClick={() => navigate('/')}
   >
-    CONVERSO 👟
+   👟 CONVERSO 👟
   </h2>
 </ThemeProvider>
           </Typography>

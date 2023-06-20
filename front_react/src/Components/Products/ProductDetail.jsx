@@ -5,9 +5,7 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
 import Select from '@mui/material/Select';
-import DetalleProducto from '../../Assets/12.jpeg';
-import {useContext} from "react";
-import {DataContext} from '../../Context/ConversoContext';
+import '../../index.css'
 
 const ProductDetailWrapper = styled(Container)(({ theme }) => ({
   marginTop: theme.spacing(4),
@@ -30,41 +28,55 @@ const ButtonWrapper = styled('div')(({ theme }) => ({
   marginTop: theme.spacing(2),
 }));
 
+const StyledSelect = styled(Select)({
+  '& .MuiSelect-selectMenu': {
+    display: 'flex',
+    flexDirection: 'column',
+  },
+});
+
 const ProductDetail = (id) => {
   const [selectedSize, setSelectedSize] = React.useState('');
- 
 
   const handleSizeChange = (event) => {
     setSelectedSize(event.target.value);
   };
 
   return (
-
     <ProductDetailWrapper>
-     <ProductImage src={id.id.image} alt="Producto"/>
-      <ProductContent>
-        <Typography variant="h4" gutterBottom>
-        {id.id.title}
+      <ProductImage src={id.id.image} alt="producto" />
+       <ProductContent>
+        <Typography variant="h6" gutterBottom>
+          {id.id.title}
         </Typography>
         <Typography variant="body1" gutterBottom>
-          Descripción del producto.
+          {id.id.style}
         </Typography>
+        <Typography variant="body1" gutterBottom>
+          {id.id.price}€
+          </Typography>
         <ButtonWrapper>
-          <Select
+          <StyledSelect
             value={selectedSize}
             onChange={handleSizeChange}
             displayEmpty
             sx={{ marginBottom: '16px' }}
           >
-            <MenuItem value="" disabled>
-              Seleciona tu talla
+            <MenuItem 
+            value="" disabled>
+             Seleciona tu talla
+            
             </MenuItem>
+            
             <MenuItem value="36">36</MenuItem>
             <MenuItem value="37">37</MenuItem>
             <MenuItem value="38">38</MenuItem>
             <MenuItem value="39">39</MenuItem>
             <MenuItem value="40">40</MenuItem>
-          </Select>
+            <MenuItem value="41">41</MenuItem>
+            <MenuItem value="42">42</MenuItem>
+            
+          </StyledSelect>
           <Button variant="contained" sx={{ backgroundColor: '#000', color: '#fff' }}>
             Agregar al carrito
           </Button>
@@ -75,3 +87,4 @@ const ProductDetail = (id) => {
 };
 
 export default ProductDetail;
+
