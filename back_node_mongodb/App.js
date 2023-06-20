@@ -4,8 +4,11 @@ import cors from 'cors';
 import db from './database/db.js';
 // importamos nuestro enrutador
 import conversoRoutes from './routes/routes.js';
+// import loginRouter from './routes/login.js';
+
 
 const app = express()
+
 
 app.use(cors())
 app.use(express.json())
@@ -21,3 +24,4 @@ app.listen(8000, () =>{
 app.get('/', (req,res) =>{
     res.send('working')
 })
+
