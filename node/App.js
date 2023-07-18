@@ -1,9 +1,9 @@
 import express from 'express'
 import cors from 'cors'
 // importamos la conexión a la DB
-import db from '../database/db.js';
+import db from './database/db.js';
 // importamos nuestro enrutador
-import conversoRoutes from '../routes/routes.js'
+import conversoRoutes from './src/routes/products.routes.js'
 import morgan from 'morgan'
 import pkg from './package.json'assert { type: 'json' };
 
