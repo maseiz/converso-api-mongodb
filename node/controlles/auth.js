@@ -12,7 +12,7 @@ const loginCtrl = async (req, res) => {
         res.statuts(404)
         res.send({error: 'User not found'})
     }
-     //aquí va a comprar el password de texto plano con el user.password, es decir, el hash generado encriptado
+     //aquí va a comparar el password de texto plano con el user.password, es decir, el hash generado encriptado
     const checkPassword = await compare(password, user.password)  
     const tokenSession = await tokenSign(user)
     if (checkPassword) { //esto se cumple si la contraseña es correcta
