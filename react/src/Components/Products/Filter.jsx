@@ -79,7 +79,7 @@ export const Filter = ({ handleFilter }) => {
             </div>
           ))
         ) : (
-          <p>No products found.</p>
+          <p></p>
         )}
       </div>
     </div>

@@ -8,7 +8,7 @@ const DataProvider = ({children}) => {
         const [cart, setCart] = useState ([]);
 
         useEffect (() => {
-            axios.get("http://localhost:8000/converso").then((res)=> setData(res.data));
+            axios.get("http://localhost:4000/converso").then((res)=> setData(res.data));
            
         },[])
         console.log(data)

@@ -28,7 +28,7 @@ app.use(cors())
 app.use(express.json())
 app.use(express.urlencoded({extended:true}))
 app.use('/converso', conversoRoutes)
-app.use(axios())
+// app.use(axios())
 
 
 app.listen(4000, () =>{
